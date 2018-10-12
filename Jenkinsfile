@@ -21,6 +21,10 @@ node(label) {
         }
     }
     
+    stage('Documentation') {
+        sh "sleep 1s;"
+    }
+
     stage('Deploy') {
         sh "sleep 1s;"
     }
