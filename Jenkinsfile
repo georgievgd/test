@@ -9,6 +9,7 @@ node(label) {
 
     stage('Build') {
         sh "sleep 1s;"
+        sh "whoami;pwd;ls -al;"
     }
     
     stage('Test') {
