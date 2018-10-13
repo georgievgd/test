@@ -11,6 +11,10 @@ node(label) {
         sh "sleep 1s;"
         sh "whoami;pwd;ls -al;"
     }
+
+    stage('Check Styles') {
+        sh "sleep 1s;"
+    }
     
     stage('Test') {
         sh "sleep 1s;"
