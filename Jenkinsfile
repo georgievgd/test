@@ -3,7 +3,8 @@ def label = "python_agent"
 
 node(label) {
 
-    logstashSend failBuild: true, maxLines: 1000
+    //logstashSend failBuild: true, maxLines: 1000
+    logstash
     
     stage('Source') {
         checkout scm
