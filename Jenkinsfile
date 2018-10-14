@@ -1,39 +1,42 @@
 def label = "python_agent"
 //def label = "test"
 
-node(label) {
+timestamps {
+      logstash {
+        node(label) {
 
-    //logstashSend failBuild: true, maxLines: 1000
-    logstash
-    
-    stage('Source') {
-        checkout scm
-    }
+            //logstashSend failBuild: true, maxLines: 1000
 
-    stage('Build') {
-        sh "sleep 1s;"
-        sh "whoami;pwd;ls -al;"
-    }
+            stage('Source') {
+                checkout scm
+            }
 
-    stage('Check Styles') {
-        sh "sleep 1s;"
-    }
-    
-    stage('Test') {
-        sh "sleep 1s;"
-        try {
-            sh "python --version"
+            stage('Build') {
+                sh "sleep 1s;"
+                sh "whoami;pwd;ls -al;"
+            }
+
+            stage('Check Styles') {
+                sh "sleep 1s;"
+            }
+            
+            stage('Test') {
+                sh "sleep 1s;"
+                try {
+                    sh "python --version"
+                }
+                catch (exc) {
+                    echo 'Something failed, I should sound the klaxons!'
+                }
+            }
+            
+            stage('Documentation') {
+                sh "sleep 1s;"
+            }
+
+            stage('Deploy') {
+                sh "sleep 1s;"
+            }
         }
-        catch (exc) {
-            echo 'Something failed, I should sound the klaxons!'
-        }
-    }
-    
-    stage('Documentation') {
-        sh "sleep 1s;"
-    }
-
-    stage('Deploy') {
-        sh "sleep 1s;"
     }
 }
